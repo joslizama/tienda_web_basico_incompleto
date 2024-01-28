@@ -1,0 +1,102 @@
+﻿
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Iniciar sesion</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        .login-form {
+            width: 340px;
+            margin: 50px auto;
+            font-size: 15px;
+        }
+
+            .login-form form {
+                margin-bottom: 15px;
+                background: #f7f7f7;
+                box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+                padding: 30px;
+            }
+
+            .login-form h2 {
+                margin: 0 0 15px;
+            }
+
+        .form-control, .btn {
+            min-height: 38px;
+            border-radius: 2px;
+        }
+
+        .btn {
+            font-size: 15px;
+            font-weight: bold;
+        }
+    </style>
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/JS/LoginValidacion.js"></script>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Carro de compras v2017</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Home/Index">Volver al inicio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Registro</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Catalogo</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+
+
+    <div class="login-form">
+        <form action="~/Home/Loginc" method="post" enctype="multipart/form-data">
+            <h2 class="text-center">Ingresar al sitio web</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Rut" name="rut" id="rut" required="required" title="Debe completar los campos">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Contraseña" name="contraseña" id="contraseña" required="required" title="Debe completar los campos">
+            </div>
+            <div class="form-group"> 
+                <center>
+                    <button type="submit" name="Ingresar" value="Ingresar" id="Ingresar" class="btn btn-primary">Ingresar</button>
+                    &nbsp;
+                    <button type="reset" name="Cancelar" value="Cancelar" id="Cancelar" class="btn btn-danger">Cancelar</button>
+                </center>
+             </div>
+
+        </form>
+        <p class="text-center"><a href="~/Home/Registro">Crear una cuenta</a></p>
+    </div>
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TiendaVModelStoreContainer" CdmEntityContainer="Conexiones">
+    <EntitySetMapping Name="categorias">
+      <EntityTypeMapping TypeName="TiendaVModel.categoria">
+        <MappingFragment StoreEntitySet="categorias">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="clientes">
+      <EntityTypeMapping TypeName="TiendaVModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="rut" ColumnName="rut" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="comuna" ColumnName="comuna" />
+          <ScalarProperty Name="ciudad" ColumnName="ciudad" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cliente_tipo">
+      <EntityTypeMapping TypeName="TiendaVModel.cliente_tipo">
+        <MappingFragment StoreEntitySet="cliente_tipo">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="clave" ColumnName="clave" />
+          <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+          <ScalarProperty Name="tipo_id" ColumnName="tipo_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="detalle_ventas">
+      <EntityTypeMapping TypeName="TiendaVModel.detalle_ventas">
+        <MappingFragment StoreEntitySet="detalle_ventas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+          <ScalarProperty Name="producto_id" ColumnName="producto_id" />
+          <ScalarProperty Name="venta_id" ColumnName="venta id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="marcas">
+      <EntityTypeMapping TypeName="TiendaVModel.marca">
+        <MappingFragment StoreEntitySet="marcas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="opinions">
+      <EntityTypeMapping TypeName="TiendaVModel.opinion">
+        <MappingFragment StoreEntitySet="opinion">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="tipo_opinion" ColumnName="tipo_opinion" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="cliente_tipo_id" ColumnName="cliente_tipo_id" />
+          <ScalarProperty Name="producto_id" ColumnName="producto_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productoes">
+      <EntityTypeMapping TypeName="TiendaVModel.producto">
+        <MappingFragment StoreEntitySet="producto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+          <ScalarProperty Name="stock" ColumnName="stock" />
+          <ScalarProperty Name="categoria_id" ColumnName="categoria_id" />
+          <ScalarProperty Name="subcategoria_id" ColumnName="subcategoria_id" />
+          <ScalarProperty Name="marca_id" ColumnName="marca_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sub_categorias">
+      <EntityTypeMapping TypeName="TiendaVModel.sub_categorias">
+        <MappingFragment StoreEntitySet="sub_categorias">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipo_usuario">
+      <EntityTypeMapping TypeName="TiendaVModel.tipo_usuario">
+        <MappingFragment StoreEntitySet="tipo_usuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ventas">
+      <EntityTypeMapping TypeName="TiendaVModel.venta">
+        <MappingFragment StoreEntitySet="ventas">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="iva" ColumnName="iva" />
+          <ScalarProperty Name="sub_total" ColumnName="sub_total" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="cliente_id" ColumnName="cliente_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

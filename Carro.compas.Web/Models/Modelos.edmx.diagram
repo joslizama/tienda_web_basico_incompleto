@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b45761b0d8d644dfa17b3efaf32ad5bb" Name="Diagram1">
+        <EntityTypeShape EntityType="TiendaVModel.categoria" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVModel.cliente" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVModel.cliente_tipo" Width="1.5" PointX="6" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVModel.detalle_ventas" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVModel.marca" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVModel.opinion" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVModel.producto" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVModel.sub_categorias" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVModel.tipo_usuario" Width="1.5" PointX="3.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TiendaVModel.venta" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="TiendaVModel.FK__producto__catego__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVModel.FK__cliente_t__clien__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVModel.FK__ventas__cliente___3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVModel.FK__cliente_t__tipo___15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVModel.FK__opinion__cliente__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVModel.FK__detalle_v__produ__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVModel.FK__detalle_v__venta__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVModel.FK__producto__marca___30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVModel.FK__opinion__product__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="TiendaVModel.FK__producto__subcat__300424B4" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

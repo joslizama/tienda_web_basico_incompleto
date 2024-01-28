@@ -1,0 +1,172 @@
+﻿@model Carro.compas.Web.Models.producto
+
+@{
+                /**/
+
+
+
+                var r = Convert.ToString(Session["r"]);
+                var n = Convert.ToString(Session["n"]);
+                var t = Convert.ToInt32(Session["t"]);
+
+                if (r == null || r == "" || t == null || t != 2)
+                {
+                    Response.Redirect("~/Home/Log");
+                }
+
+
+
+
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Productos</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Productos</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Cliente/Index_cliente">Volver al inicio</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Cliente/Lprod">Volver al listado</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Cliente/Verprod">Ver productos al carro de compras</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Cliente/Csesion">Cerrar sesion</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+
+    <br />
+
+
+    <table align="center" class="border border-dark" border="1">
+        <tr>
+            <td colspan="2" align="center"><h3>Detalles producto</h3></td>
+        </tr>
+        <!---->
+        <tr>
+            <td><label>Nombre : </label></td>
+            <td><label>@Model.nombre</label></td>
+        </tr>
+        <tr>
+            <td><label>Imagen : </label></td>
+            <td><img src="@Url.Action("GetImagen","Cliente",new {id=Model.id }) " width="60" height="60"></td>
+        </tr>
+        <tr>
+            <td><label>Descripcion : </label></td>
+            <td><label>@Model.descripcion</label></td>
+        </tr>
+        <tr>
+            <td><label>Precio : </label></td>
+            <td> <label>@Model.precio</label></td>
+        </tr>
+        <tr>
+            <td><label>Stock : </label></td>
+            <td><label>@Model.stock</label></td>
+        </tr>
+        <tr>
+            <td><label>Categoria : </label></td>
+            <td>
+
+                @foreach (var i in TempData["cat"] as List<Carro.compas.Web.Models.categoria>)
+                {
+
+                    if (Model.categoria_id == i.id)
+                    {
+                        <label>@i.nombre</label>
+                    }
+
+
+                }
+
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Subcategoria : </label></td>
+            <td>
+
+
+                @foreach (var i in TempData["scatcat"] as List<Carro.compas.Web.Models.sub_categorias>)
+                {
+
+                    if (Model.subcategoria_id == i.id)
+                    {
+                        <label>@i.nombre</label>
+                    }
+
+
+                }
+
+
+
+            </td>
+        </tr>
+
+        <tr>
+            <td><label>Marcas : </label></td>
+            <td>
+
+                @foreach (var i in TempData["mar"] as List<Carro.compas.Web.Models.marca>)
+                {
+
+                    if (Model.marca_id == i.id)
+                    {
+                        <label>@i.nombre</label>
+                    }
+
+
+                }
+
+
+            </td>
+        </tr>
+
+
+
+
+
+    </table>
+
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

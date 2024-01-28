@@ -1,0 +1,90 @@
+﻿
+@{
+
+    var r = Convert.ToString(Session["rut"]);
+    var t = Convert.ToInt32(Session["tipo"]);
+    var n = Convert.ToString(Session["nombre"]);
+
+    if (r == null || r == "" || t == null || t != 1)
+    {
+        Response.Redirect("~/Home/Log");
+    }
+
+
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Subcategorias</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/JS/NuevaSubcategoria.js"></script>
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Subcateogorias</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Admin/Lsubcategorias">Volver al listado</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Admin/Index_admin">Volver al inicio</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Admin/Csesion">Cerrar sesion</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <br />
+
+    <form method="post" enctype="multipart/form-data">
+        <table align="center" class="border border-dark" border="1">
+            <tr>
+                <td><h3>Nueva subcategoria</h3></td>
+            </tr>
+            <!---->
+            <tr>
+                <td><label>Nombre : </label></td>
+                <td> <input type="text" class="form-control" name="nombre" id="nombre" required title="Debe completar los campos"></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="submit" name="Enviar" value="Enviar" id="Enviar" class="btn btn-outline-success">Enviar</button>
+                    &nbsp;
+                    <button type="reset" name="Cancelar" value="Cancelar" id="Cancelar" class="btn btn-outline-danger">Cancelar</button>
+                </td>
+            </tr>
+
+
+
+        </table>
+    </form>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Registrarse</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+    <script src="~/JS/RegistroClienteUsuario.js"></script>
+
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Carro de compras v2017</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Home/Index">Volver al inicio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Home/Log">Registro</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Catalogo</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav> 
+    <br /> 
+
+    <!-- Page Content -->
+    <form action="Ntusuariosvc" enctype="multipart/form-data" method="post">
+        <table align="center" border="1" class="border border-dark">
+            <tr>
+                <td colspan="2" align="center"><h3>Registrarse</h3></td>
+            </tr>
+            <!---->
+            <tr>
+                <td>
+                    <label for="formGroupExampleInput">Nombre de usuario : </label>
+                </td>
+                <td>
+                    <input type="text" class="form-control" id="nusuario" name="nusuario" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="formGroupExampleInput">Contraseña : </label>
+                </td>
+                <td>
+                    <input type="password" class="form-control" id="contraseña" name="contraseña" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+
+                    <button type="submit" name="Registro" id="Registro" value="Registro" class="btn btn-outline-success">Registro</button>
+                    &nbsp;
+                    <button type="reset" name="Cancelar" id="Cancelar" value="Cancelar" class="btn btn-outline-danger">Cancelar</button>
+                </td>
+            </tr>
+
+
+        </table>
+    </form>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<script>
+
+    alert("Registrar tipo de usuario");
+
+</script>

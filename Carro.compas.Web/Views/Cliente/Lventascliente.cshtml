@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Carro.compas.Web.Models.venta>
+
+@{
+
+
+    var r = Convert.ToString(Session["r"]);
+    var n = Convert.ToString(Session["n"]);
+    var t = Convert.ToInt32(Session["t"]);
+
+    if (r == null || r == "" || t == null || t != 2)
+    {
+        Response.Redirect("~/Home/Log");
+    }
+
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Ventas</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+
+
+
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Ventas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Cliente/Index_cliente">Volver al inicio</a>
+                    </li>
+
+                    <li class="nav-item active">
+                        <a class="nav-link" href="~/Cliente/Csesion">Cerrar sesion</a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Page Content -->
+    <br />
+
+    <table id="table_id" class="display">
+        <thead>
+            <tr>
+                <th>Fecha</th>
+                <th>I.V.A</th>
+                <th>Sub total</th>
+                <th>Total</th>
+
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model)
+            {
+            <tr>
+                <td><label>@i.fecha</label></td>
+                <td><label>@i.iva</label></td>
+                <td><label>@i.sub_total</label></td>
+                <td><label>@i.total</label></td>
+
+                <td>
+                    @Html.ActionLink("Detalle de la venta", "Dventas", new { id = i.id }, new { @class = "btn btn-primary" })
+
+                </td>
+
+            </tr>
+
+
+            }
+
+
+
+        </tbody>
+    </table>
+
+
+
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.slim.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<script>
+
+    $(document).ready(function () {
+        $('#table_id').DataTable();
+    });
+
+</script>

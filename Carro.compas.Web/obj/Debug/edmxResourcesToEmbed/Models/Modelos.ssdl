@@ -1,0 +1,271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TiendaVModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="rut" />
+    </Key>
+    <Property Name="rut" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="apellido" Type="varchar" MaxLength="100" />
+    <Property Name="direccion" Type="varchar" MaxLength="100" />
+    <Property Name="comuna" Type="varchar" MaxLength="100" />
+    <Property Name="ciudad" Type="varchar" MaxLength="100" />
+    <Property Name="correo" Type="varchar" MaxLength="100" />
+    <Property Name="telefono" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="cliente_tipo">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre_usuario" Type="varchar" MaxLength="100" />
+    <Property Name="clave" Type="varchar" MaxLength="100" />
+    <Property Name="cliente_id" Type="varchar" MaxLength="100" />
+    <Property Name="tipo_id" Type="int" />
+  </EntityType>
+  <EntityType Name="detalle_ventas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cantidad" Type="int" />
+    <Property Name="producto_id" Type="int" />
+    <Property Name="venta id" Type="int" />
+  </EntityType>
+  <EntityType Name="marcas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="opinion">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="tipo_opinion" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="varchar(max)" />
+    <Property Name="cliente_tipo_id" Type="int" />
+    <Property Name="producto_id" Type="int" />
+  </EntityType>
+  <EntityType Name="producto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="descripcion" Type="varchar" MaxLength="100" />
+    <Property Name="imagen" Type="varbinary(max)" />
+    <Property Name="precio" Type="float" />
+    <Property Name="stock" Type="int" />
+    <Property Name="categoria_id" Type="int" />
+    <Property Name="subcategoria_id" Type="int" />
+    <Property Name="marca_id" Type="int" />
+  </EntityType>
+  <EntityType Name="sub_categorias">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tipo_usuario">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="ventas">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fecha" Type="date" />
+    <Property Name="iva" Type="float" />
+    <Property Name="sub_total" Type="float" />
+    <Property Name="total" Type="float" />
+    <Property Name="cliente_id" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK__cliente_t__clien__145C0A3F">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="cliente_tipo" Type="Self.cliente_tipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="rut" />
+      </Principal>
+      <Dependent Role="cliente_tipo">
+        <PropertyRef Name="cliente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__cliente_t__tipo___15502E78">
+    <End Role="tipo_usuario" Type="Self.tipo_usuario" Multiplicity="0..1" />
+    <End Role="cliente_tipo" Type="Self.cliente_tipo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tipo_usuario">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="cliente_tipo">
+        <PropertyRef Name="tipo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__detalle_v__produ__403A8C7D">
+    <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+    <End Role="detalle_ventas" Type="Self.detalle_ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="detalle_ventas">
+        <PropertyRef Name="producto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__detalle_v__venta__412EB0B6">
+    <End Role="ventas" Type="Self.ventas" Multiplicity="0..1" />
+    <End Role="detalle_ventas" Type="Self.detalle_ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ventas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="detalle_ventas">
+        <PropertyRef Name="venta id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__opinion__cliente__35BCFE0A">
+    <End Role="cliente_tipo" Type="Self.cliente_tipo" Multiplicity="0..1" />
+    <End Role="opinion" Type="Self.opinion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente_tipo">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="opinion">
+        <PropertyRef Name="cliente_tipo_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__opinion__product__36B12243">
+    <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+    <End Role="opinion" Type="Self.opinion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="producto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="opinion">
+        <PropertyRef Name="producto_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__producto__catego__2F10007B">
+    <End Role="categorias" Type="Self.categorias" Multiplicity="0..1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="categoria_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__producto__marca___30F848ED">
+    <End Role="marcas" Type="Self.marcas" Multiplicity="0..1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="marcas">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="marca_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__producto__subcat__300424B4">
+    <End Role="sub_categorias" Type="Self.sub_categorias" Multiplicity="0..1" />
+    <End Role="producto" Type="Self.producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sub_categorias">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="producto">
+        <PropertyRef Name="subcategoria_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ventas__cliente___3B75D760">
+    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
+    <End Role="ventas" Type="Self.ventas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="rut" />
+      </Principal>
+      <Dependent Role="ventas">
+        <PropertyRef Name="cliente_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TiendaVModelStoreContainer">
+    <EntitySet Name="categorias" EntityType="Self.categorias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cliente_tipo" EntityType="Self.cliente_tipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="detalle_ventas" EntityType="Self.detalle_ventas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="marcas" EntityType="Self.marcas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="opinion" EntityType="Self.opinion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sub_categorias" EntityType="Self.sub_categorias" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tipo_usuario" EntityType="Self.tipo_usuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ventas" EntityType="Self.ventas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__cliente_t__clien__145C0A3F" Association="Self.FK__cliente_t__clien__145C0A3F">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="cliente_tipo" EntitySet="cliente_tipo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__cliente_t__tipo___15502E78" Association="Self.FK__cliente_t__tipo___15502E78">
+      <End Role="tipo_usuario" EntitySet="tipo_usuario" />
+      <End Role="cliente_tipo" EntitySet="cliente_tipo" />
+    </AssociationSet>
+    <AssociationSet Name="FK__detalle_v__produ__403A8C7D" Association="Self.FK__detalle_v__produ__403A8C7D">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="detalle_ventas" EntitySet="detalle_ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__detalle_v__venta__412EB0B6" Association="Self.FK__detalle_v__venta__412EB0B6">
+      <End Role="ventas" EntitySet="ventas" />
+      <End Role="detalle_ventas" EntitySet="detalle_ventas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__opinion__cliente__35BCFE0A" Association="Self.FK__opinion__cliente__35BCFE0A">
+      <End Role="cliente_tipo" EntitySet="cliente_tipo" />
+      <End Role="opinion" EntitySet="opinion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__opinion__product__36B12243" Association="Self.FK__opinion__product__36B12243">
+      <End Role="producto" EntitySet="producto" />
+      <End Role="opinion" EntitySet="opinion" />
+    </AssociationSet>
+    <AssociationSet Name="FK__producto__catego__2F10007B" Association="Self.FK__producto__catego__2F10007B">
+      <End Role="categorias" EntitySet="categorias" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__producto__marca___30F848ED" Association="Self.FK__producto__marca___30F848ED">
+      <End Role="marcas" EntitySet="marcas" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__producto__subcat__300424B4" Association="Self.FK__producto__subcat__300424B4">
+      <End Role="sub_categorias" EntitySet="sub_categorias" />
+      <End Role="producto" EntitySet="producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ventas__cliente___3B75D760" Association="Self.FK__ventas__cliente___3B75D760">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="ventas" EntitySet="ventas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
